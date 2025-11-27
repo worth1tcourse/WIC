@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worth It Course - Kursus Bahasa Inggris & Bimbel Jambi</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        emerald: {
+                            900: '#064e3b', // Dark Green
+                            800: '#065f46',
+                        },
+                        yellow: {
+                            400: '#facc15', // Gold/Yellow
+                            500: '#eab308',
+                        }
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .hexagon-clip {
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        }
+        .wood-texture {
+            background-color: #8B5A2B;
+            background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 2px, transparent 2px, transparent 4px);
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-800 bg-slate-50 overflow-x-hidden">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 bg-transparent">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <img src="https://lh3.googleusercontent.com/d/1Ga3hnk5j0lyezOuPhRgLlqLm2vPJmkuC=w500" alt="WIC Logo" class="h-10 md:h-12 bg-white rounded-full p-1">
+                <span id="brand-text" class="font-bold text-lg md:text-xl text-emerald-900 bg-white/80 px-2 rounded-md transition-colors">
+                    WORTH IT COURSE
+                </span>
+            </div>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#home" class="nav-link font-semibold text-emerald-900 bg-white/50 px-2 rounded hover:bg-emerald-900 hover:text-yellow-400 transition-colors">Home</a>
+                <a href="#about" class="nav-link font-semibold text-emerald-900 bg-white/50 px-2 rounded hover:bg-emerald-900 hover:text-yellow-400 transition-colors">About</a>
+                <a href="#program" class="nav-link font-semibold text-emerald-900 bg-white/50 px-2 rounded hover:bg-emerald-900 hover:text-yellow-400 transition-colors">Program</a>
+                <a href="#fasilitas" class="nav-link font-semibold text-emerald-900 bg-white/50 px-2 rounded hover:bg-emerald-900 hover:text-yellow-400 transition-colors">Fasilitas</a>
+                <a href="#contact" class="nav-link font-semibold text-emerald-900 bg-white/50 px-2 rounded hover:bg-emerald-900 hover:text-yellow-400 transition-colors">Contact</a>
+                
+                <a href="https://bit.ly/PendaftaranMemberWIC" target="_blank" class="bg-yellow-400 hover:bg-yellow-300 text-emerald-900 px-6 py-2 rounded-full font-bold transition-transform transform hover:scale-105 shadow-lg">
+                    DAFTAR SEKARANG
+                </a>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <button id="menu-btn" class="md:hidden text-yellow-400 bg-emerald-900 p-2 rounded">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-emerald-900 text-white p-4 flex flex-col gap-4 shadow-xl border-t border-emerald-800 transition-all">
+            <a href="#home" class="block py-2 border-b border-emerald-800 hover:text-yellow-400 mobile-link">Home</a>
+            <a href="#about" class="block py-2 border-b border-emerald-800 hover:text-yellow-400 mobile-link">About</a>
+            <a href="#program" class="block py-2 border-b border-emerald-800 hover:text-yellow-400 mobile-link">Program</a>
+            <a href="#fasilitas" class="block py-2 border-b border-emerald-800 hover:text-yellow-400 mobile-link">Fasilitas</a>
+            <a href="#contact" class="block py-2 border-b border-emerald-800 hover:text-yellow-400 mobile-link">Contact</a>
+            <a href="https://bit.ly/PendaftaranMemberWIC" target="_blank" class="block bg-yellow-400 text-emerald-900 text-center py-3 rounded-lg font-bold">
+                DAFTAR SEKARANG
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://lh3.googleusercontent.com/d/182IZOGYFjifw_God8u6d78R4A4GKepJw=w1000" alt="Team Worth It Course" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-emerald-900/90 via-emerald-800/80 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 container mx-auto px-4 pt-20 grid md:grid-cols-2 gap-8 items-center">
+            <div class="text-white space-y-6" data-aos="fade-right">
+                <span class="inline-block px-4 py-1 bg-yellow-500 text-emerald-900 font-bold rounded-full text-sm animate-pulse">
+                    Kursus Bahasa Inggris & Bimbel
+                </span>
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
+                    Bahasa Inggris <br/>
+                    <span class="text-yellow-400">INVESTASI CERDAS</span> <br/>
+                    untuk MASA DEPAN <br/>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-white">TANPA BATAS</span>
+                </h1>
+                <p class="text-lg md:text-xl text-slate-200 max-w-lg">
+                    Bergabunglah dengan lembaga kursus terdepan di Jambi. Tutor lulusan Pare Kediri siap membimbingmu!
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                    <a href="https://bit.ly/PendaftaranMemberWIC" target="_blank" class="bg-yellow-400 text-emerald-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-300 transition-all shadow-[0_0_20px_rgba(250,204,21,0.5)] text-center flex items-center justify-center gap-2">
+                        REGISTER NOW <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                    </a>
+                    <a href="https://wa.me/6281359199251" target="_blank" class="border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-emerald-900 transition-all text-center">
+                        Free PLACEMENT TEST
+                    </a>
+                </div>
+                <!-- Jingle -->
+                <div class="pt-4 flex items-center gap-2 text-sm text-yellow-200/80">
+                    <i data-lucide="play-circle" class="w-4 h-4"></i>
+                    <a href="https://drive.google.com/uc?export=download&id=1mwQ6asDYZiLIN51-GTugaz5lR2D2GPb_" target="_blank" class="hover:text-white underline">
+                        Dengarkan Jingle Worth It Course
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Hero Image Desktop -->
+            <div class="hidden md:block relative h-full" data-aos="fade-left">
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-yellow-400 rounded-full blur-[100px] opacity-20"></div>
+                <!-- CEO Image in Hexagon/Box -->
+                <div class="relative overflow-hidden w-80 h-96 mx-auto border-4 border-yellow-400 shadow-2xl rounded-2xl">
+                    <img src="https://lh3.googleusercontent.com/d/1HhYfWI1o1CffGNQfgnymyh2z7VB-WIYZ=w500" alt="CEO" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+        
+        <!-- Wave Divider -->
+        <div class="absolute bottom-0 w-full leading-none">
+            <svg class="block w-full h-16 md:h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="fill-slate-50"></path>
+            </svg>
+        </div>
+    </header>
+
+    <!-- News Section -->
+    <section class="py-16 container mx-auto px-4 -mt-10 relative z-20">
+        <div class="grid md:grid-cols-3 gap-6">
+            <!-- News Item 1 -->
+            <div class="bg-white rounded-2xl shadow-lg p-6 border-l-4 border-yellow-400 hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="0">
+                <div class="text-emerald-600 font-bold text-sm mb-2 flex items-center gap-2">
+                    <i data-lucide="calendar" class="w-4 h-4"></i> Nov 2024
+                </div>
+                <h3 class="font-bold text-xl mb-2 text-slate-800">Pembukaan Kelas Baru</h3>
+                <p class="text-slate-600">Daftar sekarang untuk batch terbaru bulan ini!</p>
+            </div>
+            <!-- News Item 2 -->
+            <div class="bg-white rounded-2xl shadow-lg p-6 border-l-4 border-yellow-400 hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="100">
+                <div class="text-emerald-600 font-bold text-sm mb-2 flex items-center gap-2">
+                    <i data-lucide="calendar" class="w-4 h-4"></i> Oct 2024
+                </div>
+                <h3 class="font-bold text-xl mb-2 text-slate-800">Juara Speech Competition</h3>
+                <p class="text-slate-600">Siswa WIC meraih Juara 1 Tingkat Provinsi.</p>
+            </div>
+            <!-- News Item 3 -->
+            <div class="bg-white rounded-2xl shadow-lg p-6 border-l-4 border-yellow-400 hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="200">
+                <div class="text-emerald-600 font-bold text-sm mb-2 flex items-center gap-2">
+                    <i data-lucide="calendar" class="w-4 h-4"></i> Sep 2024
+                </div>
+                <h3 class="font-bold text-xl mb-2 text-slate-800">Confident Show 2024</h3>
+                <p class="text-slate-600">Ajang unjuk bakat public speaking siswa.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 container mx-auto px-4">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6" data-aos="fade-right">
+                <h4 class="text-emerald-600 font-bold tracking-widest">TENTANG KAMI</h4>
+                <h2 class="text-4xl font-extrabold text-slate-900">Mencetak Generasi <span class="text-yellow-500">Cerdas & Percaya Diri</span></h2>
+                <p class="text-slate-600 leading-relaxed text-lg text-justify">
+                    Worth It Course hadir dengan visi menjadi lembaga kursus bahasa Inggris terdepan. 
+                    Kami membawa metode pembelajaran dari Kampung Inggris Pare Kediri langsung ke Jambi. 
+                    Misi kami memberikan pendidikan berkualitas dengan metode interaktif untuk masa depan tanpa batas.
+                </p>
+                
+                <div class="bg-emerald-50 p-6 rounded-xl border border-emerald-100 relative mt-8">
+                    <div class="absolute -top-4 -left-4 bg-yellow-400 p-2 rounded-lg">
+                        <i data-lucide="users" class="text-emerald-900 w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-emerald-900 mb-2 mt-2">Sambutan Founder</h3>
+                    <p class="italic text-slate-700">"Bahasa Inggris bukan sekadar mata pelajaran, tapi kunci membuka pintu dunia. Mari berinvestasi untuk masa depan yang lebih cerah bersama Worth It Course."</p>
+                    <div class="mt-4 flex items-center gap-4">
+                        <img src="https://lh3.googleusercontent.com/d/1HhYfWI1o1CffGNQfgnymyh2z7VB-WIYZ=w500" alt="CEO" class="w-12 h-12 rounded-full object-cover border-2 border-emerald-600">
+                        <div>
+                            <p class="font-bold text-emerald-900 text-sm">CEO Worth It Course</p>
+                            <p class="text-xs text-slate-500">Director</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative" data-aos="fade-left">
+                <!-- Hexagon Grid Images -->
+                <div class="flex flex-wrap justify-center gap-4">
+                    <div class="hexagon-clip w-48 h-52 bg-slate-200 relative overflow-hidden group">
+                         <img src="https://lh3.googleusercontent.com/d/1s8d4IlYZz_OLPO7aGU2gJZhkPMkHGbMG=w600" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="hexagon-clip w-48 h-52 bg-slate-200 mt-12 relative overflow-hidden group">
+                         <img src="https://lh3.googleusercontent.com/d/1nSPMZuvTMDVi_bfTUz0NGB2hJ13Qegco=w600" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="hexagon-clip w-48 h-52 bg-slate-200 relative overflow-hidden group">
+                         <img src="https://lh3.googleusercontent.com/d/1Xrjr2Z95223MSbly_0JAaccA5d4ImBNf=w600" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-20 bg-emerald-900 text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-yellow-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-emerald-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob" style="animation-delay: 2s"></div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h3 class="text-yellow-500 font-bold uppercase tracking-wider text-sm mb-2">Keunggulan Kami</h3>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-white">WHY CHOOSE US?</h2>
+                <div class="w-24 h-1 bg-yellow-400 mx-auto mt-4 rounded-full"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Item 1 -->
+                <div class="bg-emerald-800/50 backdrop-blur-sm p-8 rounded-2xl border border-emerald-700 hover:bg-emerald-800 hover:border-yellow-400 transition-all group" data-aos="fade-up" data-aos-delay="0">
+                    <div class="text-yellow-400 mb-4 transform group-hover:scale-110 transition-transform"><i data-lucide="award" class="w-10 h-10"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Tutor Pare Kediri</h3>
+                    <p class="text-emerald-100 text-sm">Pengajar berpengalaman lulusan Kampung Inggris.</p>
+                </div>
+                <!-- Item 2 -->
+                <div class="bg-emerald-800/50 backdrop-blur-sm p-8 rounded-2xl border border-emerald-700 hover:bg-emerald-800 hover:border-yellow-400 transition-all group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-yellow-400 mb-4 transform group-hover:scale-110 transition-transform"><i data-lucide="play-circle" class="w-10 h-10"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Metode Interaktif</h3>
+                    <p class="text-emerald-100 text-sm">Media belajar yang seru dan tidak membosankan.</p>
+                </div>
+                <!-- Item 3 -->
+                <div class="bg-emerald-800/50 backdrop-blur-sm p-8 rounded-2xl border border-emerald-700 hover:bg-emerald-800 hover:border-yellow-400 transition-all group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-yellow-400 mb-4 transform group-hover:scale-110 transition-transform"><i data-lucide="book-open" class="w-10 h-10"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Kurikulum Terkonsep</h3>
+                    <p class="text-emerald-100 text-sm">Materi disusun sistematis termasuk materi sekolah.</p>
+                </div>
+                <!-- Item 4 -->
+                <div class="bg-emerald-800/50 backdrop-blur-sm p-8 rounded-2xl border border-emerald-700 hover:bg-emerald-800 hover:border-yellow-400 transition-all group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-yellow-400 mb-4 transform group-hover:scale-110 transition-transform"><i data-lucide="users" class="w-10 h-10"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Confident Show</h3>
+                    <p class="text-emerald-100 text-sm">Pelatihan Public Speaking dengan acara unjuk bakat.</p>
+                </div>
+                <!-- Item 5 -->
+                <div class="bg-emerald-800/50 backdrop-blur-sm p-8 rounded-2xl border border-emerald-700 hover:bg-emerald-800 hover:border-yellow-400 transition-all group" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-yellow-400 mb-4 transform group-hover:scale-110 transition-transform"><i data-lucide="map-pin" class="w-10 h-10"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Lokasi Nyaman</h3>
+                    <p class="text-emerald-100 text-sm">Tempat asri, ber-AC, dan mudah diakses di Citra Raya.</p>
+                </div>
+                <!-- Item 6 -->
+                <div class="bg-emerald-800/50 backdrop-blur-sm p-8 rounded-2xl border border-emerald-700 hover:bg-emerald-800 hover:border-yellow-400 transition-all group" data-aos="fade-up" data-aos-delay="500">
+                    <div class="text-yellow-400 mb-4 transform group-hover:scale-110 transition-transform"><i data-lucide="clock" class="w-10 h-10"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Waktu Fleksibel</h3>
+                    <p class="text-emerald-100 text-sm">Sabtu Minggu buka, bebas pilih jadwal (S&K).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="program" class="py-20 bg-slate-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h3 class="text-yellow-500 font-bold uppercase tracking-wider text-sm mb-2">Program Kami</h3>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-emerald-900">AVAILABLE CLASSES</h2>
+                <div class="w-24 h-1 bg-yellow-400 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Program List -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all border-b-4 border-emerald-900 hover:border-yellow-400 group" data-aos="fade-up">
+                    <div class="text-4xl mb-4 bg-emerald-50 w-16 h-16 rounded-full flex items-center justify-center group-hover:bg-yellow-100 transition-colors">🧸</div>
+                    <h3 class="font-bold text-lg text-emerald-900 mb-1">Regular Class for Preschools</h3>
+                    <span class="inline-block bg-emerald-100 text-emerald-800 text-xs px-2 py-1 rounded mb-3 font-semibold">Anak Usia Dini</span>
+                    <p class="text-slate-600 text-sm">Metode fun learning yang menyenangkan.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all border-b-4 border-emerald-900 hover:border-yellow-400 group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-4xl mb-4 bg-emerald-50 w-16 h-16 rounded-full flex items-center justify-center group-hover:bg-yellow-100 transition-colors">🌱</div>
+                    <h3 class="font-bold text-lg text-emerald-900 mb-1">Regular Class for Beginners</h3>
+                    <span class="inline-block bg-emerald-100 text-emerald-800 text-xs px-2 py-1 rounded mb-3 font-semibold">Pemula</span>
+                    <p class="text-slate-600 text-sm">Kelas dasar bagi yang baru memulai.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all border-b-4 border-emerald-900 hover:border-yellow-400 group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-4xl mb-4 bg-emerald-50 w-16 h-16 rounded-full flex items-center justify-center group-hover:bg-yellow-100 transition-colors">🎨</div>
+                    <h3 class="font-bold text-lg text-emerald-900 mb-1">Regular Class for Kids</h3>
+                    <span class="inline-block bg-emerald-100 text-emerald-800 text-xs px-2 py-1 rounded mb-3 font-semibold">SD</span>
+                    <p class="text-slate-600 text-sm">Pendekatan interaktif dan ceria.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all border-b-4 border-emerald-900 hover:border-yellow-400 group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-4xl mb-4 bg-emerald-50 w-16 h-16 rounded-full flex items-center justify-center group-hover:bg-yellow-100 transition-colors">🎓</div>
+                    <h3 class="font-bold text-lg text-emerald-900 mb-1">Regular Class for Teenagers</h3>
+                    <span class="inline-block bg-emerald-100 text-emerald-800 text-xs px-2 py-1 rounded mb-3 font-semibold">SMP/SMA</span>
+                    <p class="text-slate-600 text-sm">Fokus pada speaking dan grammar.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all border-b-4 border-emerald-900 hover:border-yellow-400 group" data-aos="fade-up">
+                    <div class="text-4xl mb-4 bg-emerald-50 w-16 h-16 rounded-full flex items-center justify-center group-hover:bg-yellow-100 transition-colors">💼</div>
+                    <h3 class="font-bold text-lg text-emerald-900 mb-1">Regular Class for Adult</h3>
+                    <span class="inline-block bg-emerald-100 text-emerald-800 text-xs px-2 py-1 rounded mb-3 font-semibold">Dewasa/Pekerja</span>
+                    <p class="text-slate-600 text-sm">Profesional dan praktis.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all border-b-4 border-emerald-900 hover:border-yellow-400 group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-4xl mb-4 bg-emerald-50 w-16 h-16 rounded-full flex items-center justify-center group-hover:bg-yellow-100 transition-colors">⭐</div>
+                    <h3 class="font-bold text-lg text-emerald-900 mb-1">Private Class</h3>
+                    <span class="inline-block bg-emerald-100 text-emerald-800 text-xs px-2 py-1 rounded mb-3 font-semibold">Max 2 Member</span>
+                    <p class="text-slate-600 text-sm">Intensif, personal, jadwal fleksibel.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all border-b-4 border-emerald-900 hover:border-yellow-400 group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-4xl mb-4 bg-emerald-50 w-16 h-16 rounded-full flex items-center justify-center group-hover:bg-yellow-100 transition-colors">🌐</div>
+                    <h3 class="font-bold text-lg text-emerald-900 mb-1">Online Study Club</h3>
+                    <span class="inline-block bg-emerald-100 text-emerald-800 text-xs px-2 py-1 rounded mb-3 font-semibold">Umum</span>
+                    <p class="text-slate-600 text-sm">Sesi belajar gratis via daring.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all border-b-4 border-emerald-900 hover:border-yellow-400 group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-4xl mb-4 bg-emerald-50 w-16 h-16 rounded-full flex items-center justify-center group-hover:bg-yellow-100 transition-colors">📚</div>
+                    <h3 class="font-bold text-lg text-emerald-900 mb-1">TOEFL Preparation</h3>
+                    <span class="inline-block bg-emerald-100 text-emerald-800 text-xs px-2 py-1 rounded mb-3 font-semibold">Akademik</span>
+                    <p class="text-slate-600 text-sm">Persiapan skor tinggi untuk beasiswa.</p>
+                </div>
+            </div>
+
+            <!-- Jenjang Pendidikan (Wood visual) -->
+            <div class="mt-20">
+                <h3 class="text-center font-bold text-2xl text-emerald-900 mb-10">Jenjang Pendidikan</h3>
+                <div class="flex flex-col md:flex-row justify-center items-center gap-4 relative">
+                    <!-- Connector Line -->
+                    <div class="hidden md:block absolute top-1/2 left-0 w-full h-2 bg-emerald-200 -z-10 transform -translate-y-1/2"></div>
+                    
+                    <div class="wood-texture text-white p-6 rounded-lg w-full md:w-64 text-center shadow-lg relative border-4 border-[#6F4E37] transform hover:scale-105 transition-transform">
+                        <h4 class="font-bold text-xl">PAUD/TK/SD</h4>
+                        <p class="text-yellow-200 text-sm mt-1">Fun Learning</p>
+                    </div>
+                    <div class="wood-texture text-white p-6 rounded-lg w-full md:w-64 text-center shadow-lg relative border-4 border-[#6F4E37] transform hover:scale-105 transition-transform">
+                        <h4 class="font-bold text-xl">SMP/SMA</h4>
+                        <p class="text-yellow-200 text-sm mt-1">Academic & Speaking</p>
+                    </div>
+                    <div class="wood-texture text-white p-6 rounded-lg w-full md:w-64 text-center shadow-lg relative border-4 border-[#6F4E37] transform hover:scale-105 transition-transform">
+                        <h4 class="font-bold text-xl">Mahasiswa</h4>
+                        <p class="text-yellow-200 text-sm mt-1">TOEFL & Career</p>
+                    </div>
+                    <div class="wood-texture text-white p-6 rounded-lg w-full md:w-64 text-center shadow-lg relative border-4 border-[#6F4E37] transform hover:scale-105 transition-transform">
+                        <h4 class="font-bold text-xl">Umum/Profesi</h4>
+                        <p class="text-yellow-200 text-sm mt-1">ESP & Business</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule & Facilities -->
+    <section id="fasilitas" class="py-16 container mx-auto px-4">
+        <div class="grid md:grid-cols-2 gap-12">
+            
+            <!-- Schedule Box -->
+            <div class="bg-emerald-900 rounded-3xl p-8 text-white relative overflow-hidden shadow-2xl" data-aos="fade-right">
+                <div class="absolute top-0 right-0 bg-yellow-500 text-emerald-900 font-bold px-6 py-2 rounded-bl-2xl">
+                    BUKA: SELASA - MINGGU
+                </div>
+                <h3 class="text-3xl font-bold mb-8 flex items-center gap-3">
+                    <i data-lucide="clock" class="text-yellow-400 w-8 h-8"></i> Jadwal Belajar
+                </h3>
+                <ul class="space-y-4">
+                    <li class="flex items-center gap-3 border-b border-emerald-700 pb-2">
+                        <div class="w-8 h-8 bg-emerald-700 rounded-full flex items-center justify-center font-bold text-yellow-400">1</div>
+                        <span class="text-lg tracking-wide">Shift 1: 08.00 - 09.30 WIB</span>
+                    </li>
+                    <li class="flex items-center gap-3 border-b border-emerald-700 pb-2">
+                        <div class="w-8 h-8 bg-emerald-700 rounded-full flex items-center justify-center font-bold text-yellow-400">2</div>
+                        <span class="text-lg tracking-wide">Shift 2: 09.30 - 11.00 WIB</span>
+                    </li>
+                    <li class="flex items-center gap-3 border-b border-emerald-700 pb-2">
+                        <div class="w-8 h-8 bg-emerald-700 rounded-full flex items-center justify-center font-bold text-yellow-400">3</div>
+                        <span class="text-lg tracking-wide">Shift 3: 13.00 - 14.30 WIB</span>
+                    </li>
+                    <li class="flex items-center gap-3 border-b border-emerald-700 pb-2">
+                        <div class="w-8 h-8 bg-emerald-700 rounded-full flex items-center justify-center font-bold text-yellow-400">4</div>
+                        <span class="text-lg tracking-wide">Shift 4: 14.30 - 16.00 WIB</span>
+                    </li>
+                    <li class="flex items-center gap-3 border-b border-emerald-700 pb-2">
+                        <div class="w-8 h-8 bg-emerald-700 rounded-full flex items-center justify-center font-bold text-yellow-400">5</div>
+                        <span class="text-lg tracking-wide">Shift 5: 16.15 - 17.45 WIB</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Facilities Grid -->
+            <div data-aos="fade-left">
+                <div class="mb-6">
+                    <h3 class="text-3xl font-bold text-emerald-900">Fasilitas Lengkap</h3>
+                    <p class="text-slate-600">Menunjang kenyamanan belajar siswa.</p>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="relative group overflow-hidden rounded-xl h-32 md:h-40">
+                        <img src="https://images.unsplash.com/photo-1577896334614-201b37d5440d?auto=format&fit=crop&q=80&w=300" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center"><span class="text-white font-bold">Ruang AC</span></div>
+                    </div>
+                    <div class="relative group overflow-hidden rounded-xl h-32 md:h-40">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=300" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center"><span class="text-white font-bold">Multimedia</span></div>
+                    </div>
+                    <div class="relative group overflow-hidden rounded-xl h-32 md:h-40">
+                        <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&q=80&w=300" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center"><span class="text-white font-bold">Library Mini</span></div>
+                    </div>
+                    <div class="relative group overflow-hidden rounded-xl h-32 md:h-40">
+                        <img src="https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&q=80&w=300" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center"><span class="text-white font-bold">Outdoor Area</span></div>
+                    </div>
+                </div>
+                <div class="mt-4 flex flex-wrap gap-2">
+                    <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-semibold">✓ WiFi Gratis</span>
+                    <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-semibold">✓ Kantin/Pantry</span>
+                    <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-semibold">✓ Musholla</span>
+                    <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-semibold">✓ Area Parkir</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Gallery (Hexagonal) -->
+    <section class="py-20 bg-slate-100">
+        <div class="container mx-auto px-4 text-center">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h3 class="text-yellow-500 font-bold uppercase tracking-wider text-sm mb-2">Galeri Kegiatan</h3>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-emerald-900">OUR MOMENTS</h2>
+                <div class="w-24 h-1 bg-yellow-400 mx-auto mt-4 rounded-full"></div>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-4 max-w-5xl mx-auto" data-aos="zoom-in">
+                <!-- Activity Images -->
+                <div class="hexagon-clip w-32 h-36 md:w-48 md:h-52 bg-emerald-200 md:mt-12 overflow-hidden group">
+                    <img src="https://lh3.googleusercontent.com/d/1s8d4IlYZz_OLPO7aGU2gJZhkPMkHGbMG=w600" class="w-full h-full object-cover hover:scale-110 transition-transform">
+                </div>
+                <div class="hexagon-clip w-32 h-36 md:w-48 md:h-52 bg-emerald-200 overflow-hidden group">
+                    <img src="https://lh3.googleusercontent.com/d/1nSPMZuvTMDVi_bfTUz0NGB2hJ13Qegco=w600" class="w-full h-full object-cover hover:scale-110 transition-transform">
+                </div>
+                <div class="hexagon-clip w-32 h-36 md:w-48 md:h-52 bg-emerald-200 md:mt-12 overflow-hidden group">
+                    <img src="https://lh3.googleusercontent.com/d/1Xrjr2Z95223MSbly_0JAaccA5d4ImBNf=w600" class="w-full h-full object-cover hover:scale-110 transition-transform">
+                </div>
+                <div class="hexagon-clip w-32 h-36 md:w-48 md:h-52 bg-emerald-200 overflow-hidden group">
+                    <img src="https://lh3.googleusercontent.com/d/1wd4a-ba_lDN056MnEaSY-3XiZdr0SRus=w600" class="w-full h-full object-cover hover:scale-110 transition-transform">
+                </div>
+                <!-- Learning Images -->
+                <div class="hexagon-clip w-32 h-36 md:w-48 md:h-52 bg-emerald-200 md:mt-12 overflow-hidden group">
+                    <img src="https://lh3.googleusercontent.com/d/1o-xx3iKXrPC9BBj515QgnbXgWV9curUB=w600" class="w-full h-full object-cover hover:scale-110 transition-transform">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 container mx-auto px-4">
+        <div class="text-center mb-12" data-aos="fade-up">
+            <h3 class="text-yellow-500 font-bold uppercase tracking-wider text-sm mb-2">Apa Kata Mereka?</h3>
+            <h2 class="text-3xl md:text-5xl font-extrabold text-emerald-900">TESTIMONI</h2>
+            <div class="w-24 h-1 bg-yellow-400 mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-white p-6 rounded-xl shadow-lg border border-slate-100 flex flex-col items-center text-center" data-aos="flip-left">
+                <img src="https://lh3.googleusercontent.com/d/1nmFkikUanwfi93BxSxhLEypclc7OudRm=w200" class="w-16 h-16 rounded-full object-cover mb-4 border-2 border-yellow-400">
+                <div class="flex text-yellow-400 mb-2 gap-1"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
+                <p class="text-slate-600 text-sm mb-4 italic">"Worth It Course sangat membantu perkembangan bahasa Inggris anak saya. Metodenya menyenangkan!"</p>
+                <h4 class="font-bold text-emerald-900">Ortu Qeenan</h4>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg border border-slate-100 flex flex-col items-center text-center" data-aos="flip-left" data-aos-delay="100">
+                <img src="https://lh3.googleusercontent.com/d/1KhOdTMP7ZSA2YJXQ07QAHpM6p5VSdyM3=w200" class="w-16 h-16 rounded-full object-cover mb-4 border-2 border-yellow-400">
+                <div class="flex text-yellow-400 mb-2 gap-1"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
+                <p class="text-slate-600 text-sm mb-4 italic">"Tutor yang ramah dan lingkungan belajar yang mendukung membuat anak saya makin percaya diri."</p>
+                <h4 class="font-bold text-emerald-900">Ortu Abror</h4>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg border border-slate-100 flex flex-col items-center text-center" data-aos="flip-left" data-aos-delay="200">
+                <img src="https://lh3.googleusercontent.com/d/1eiyR3j9l3hH-j2vrzmW4WgwylVbOQxOV=w200" class="w-16 h-16 rounded-full object-cover mb-4 border-2 border-yellow-400">
+                <div class="flex text-yellow-400 mb-2 gap-1"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
+                <p class="text-slate-600 text-sm mb-4 italic">"Sangat recommended! Fasilitas lengkap dan lokasi yang nyaman di Citra Raya."</p>
+                <h4 class="font-bold text-emerald-900">Ortu Puan</h4>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg border border-slate-100 flex flex-col items-center text-center" data-aos="flip-left" data-aos-delay="300">
+                <img src="https://lh3.googleusercontent.com/d/1bCXLFqpiHPC6W4ryt5ojwUdh4EOvptBY=w200" class="w-16 h-16 rounded-full object-cover mb-4 border-2 border-yellow-400">
+                <div class="flex text-yellow-400 mb-2 gap-1"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
+                <p class="text-slate-600 text-sm mb-4 italic">"Kemajuan speaking anak-anak sangat pesat setelah bergabung disini."</p>
+                <h4 class="font-bold text-emerald-900">Ortu Alia & Bima</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Location -->
+    <section id="contact" class="py-16 bg-emerald-900 text-white relative">
+        <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12">
+            
+            <div data-aos="fade-right">
+                <h2 class="text-3xl font-bold mb-6">Hubungi Kami</h2>
+                <div class="space-y-6">
+                    <div class="flex items-start gap-4">
+                        <i data-lucide="map-pin" class="text-yellow-400 mt-1 w-6 h-6"></i>
+                        <p>Ruko Perkantoran Boulevard Blok A08/12, Citra Raya City Jambi, Kec. Jaluko, Kab. Muaro Jambi (9GFH+8W)</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <i data-lucide="phone" class="text-yellow-400 w-6 h-6"></i>
+                        <a href="https://wa.me/6281359199251" class="hover:text-yellow-400 transition-colors">0813 5919 9251</a>
+                    </div>
+                    <div class="flex items-center gap-4">
+                         <i data-lucide="mail" class="text-yellow-400 w-6 h-6"></i>
+                         <a href="mailto:info@kursusjambi.com" class="hover:text-yellow-400">info@kursusjambi.com</a>
+                    </div>
+                </div>
+
+                <div class="mt-8">
+                   <h3 class="font-bold mb-4 text-yellow-400">Social Media</h3>
+                   <div class="flex gap-4">
+                        <a href="https://www.instagram.com/worthitcourse?igsh=eTBrMTBoOXo0b2to" target="_blank" class="w-10 h-10 border border-white/30 rounded-full flex items-center justify-center hover:bg-yellow-400 hover:text-emerald-900 transition-all">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@worthitcourse?_r=1&_t=ZS-91ZkOfgNNrO" target="_blank" class="w-10 h-10 border border-white/30 rounded-full flex items-center justify-center hover:bg-yellow-400 hover:text-emerald-900 transition-all">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+                        </a>
+                        <a href="https://www.youtube.com/@WorthItCourse-u9m" target="_blank" class="w-10 h-10 border border-white/30 rounded-full flex items-center justify-center hover:bg-yellow-400 hover:text-emerald-900 transition-all">
+                            <i data-lucide="youtube" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://www.whatsapp.com/channel/0029VbBLsHj7dmeXBuOl481X" target="_blank" class="w-10 h-10 border border-white/30 rounded-full flex items-center justify-center hover:bg-yellow-400 hover:text-emerald-900 transition-all">
+                            <i data-lucide="phone" class="w-5 h-5"></i>
+                        </a>
+                   </div>
+                </div>
+
+                <div class="mt-8">
+                    <h3 class="font-bold mb-2 text-sm text-slate-300">Supported By:</h3>
+                    <div class="flex gap-4 bg-white/10 p-4 rounded-lg flex-wrap">
+                        <div class="bg-white p-1 rounded h-12 w-auto flex items-center justify-center px-2">
+                             <img src="https://lh3.googleusercontent.com/d/18IShdt2ORCDO-kuQbkiXLJXd2TC3GHMy=w400" alt="CitraRaya" class="h-full object-contain max-w-[80px]">
+                        </div>
+                        <div class="bg-white p-1 rounded h-12 w-auto flex items-center justify-center px-2">
+                             <img src="https://lh3.googleusercontent.com/d/1uos_TCFPrIycQNDXyhR_U6CQ3OfwQysx=w400" alt="WoW" class="h-full object-contain max-w-[80px]">
+                        </div>
+                        <div class="bg-white p-1 rounded h-12 w-auto flex items-center justify-center px-2">
+                             <img src="https://lh3.googleusercontent.com/d/1jJCOHgL56ETMku0j0mhKy3Wr-azIItxu=w400" alt="UT" class="h-full object-contain max-w-[80px]">
+                        </div>
+                        <div class="bg-white p-1 rounded h-12 w-auto flex items-center justify-center px-2">
+                             <img src="https://lh3.googleusercontent.com/d/1qT2eQgtK3517_wLLb3X4KnUbQO9sKhFX=w400" alt="UIN" class="h-full object-contain max-w-[80px]">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-2 shadow-2xl h-96" data-aos="fade-left">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.245244195191!2d103.5229!3d-1.6092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e25890060932dbb%3A0x60932dbb!2sCitraRaya%20City%20Jambi!5e0!3m2!1sen!2sid!4v1625000000000!5m2!1sen!2sid" 
+                  width="100%" 
+                  height="100%" 
+                  style="border:0; border-radius: 1rem;" 
+                  allowfullscreen="" 
+                  loading="lazy"
+                  title="Worth It Course Location"
+                ></iframe>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-emerald-950 text-slate-400 py-8 text-center border-t border-emerald-900">
+        <div class="container mx-auto px-4">
+            <p class="mb-4">
+                Follow us <span class="text-yellow-400 font-bold">@WORTHITCOURSE</span>
+            </p>
+            <p>&copy; 2024 Worth It Course. All Rights Reserved.</p>
+            <p class="text-xs mt-2">Make with ❤️ in Jambi, Indonesia.</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/6281359199251" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg z-50 hover:bg-green-600 hover:scale-110 transition-all animate-bounce">
+        <i data-lucide="phone" class="w-7 h-7"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+        
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+        });
+
+        // Toggle Mobile Menu
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        const brandText = document.getElementById('brand-text');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-emerald-900', 'shadow-xl', 'py-2');
+                navbar.classList.remove('py-4', 'bg-transparent');
+                
+                brandText.classList.remove('text-emerald-900', 'bg-white/80');
+                brandText.classList.add('text-white');
+
+                navLinks.forEach(link => {
+                    link.classList.remove('text-emerald-900', 'bg-white/50');
+                    link.classList.add('text-white');
+                });
+            } else {
+                navbar.classList.remove('bg-emerald-900', 'shadow-xl', 'py-2');
+                navbar.classList.add('py-4', 'bg-transparent');
+                
+                brandText.classList.add('text-emerald-900', 'bg-white/80');
+                brandText.classList.remove('text-white');
+
+                navLinks.forEach(link => {
+                    link.classList.add('text-emerald-900', 'bg-white/50');
+                    link.classList.remove('text-white');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
