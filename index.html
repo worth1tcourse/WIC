@@ -36,6 +36,7 @@
                     },
                     animation: {
                         'blob': 'blob 7s infinite',
+                        'fade-in': 'fadeIn 1.5s ease-in-out',
                     },
                     keyframes: {
                         blob: {
@@ -43,6 +44,10 @@
                             '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
                             '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
                             '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
                         }
                     }
                 }
@@ -57,6 +62,20 @@
         .wood-texture {
             background-color: #8B5A2B;
             background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 2px, transparent 2px, transparent 4px);
+        }
+        /* Slider Styles */
+        .hero-slide {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            z-index: 0;
+        }
+        .hero-slide.active {
+            opacity: 1;
         }
     </style>
 </head>
@@ -104,12 +123,23 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section (With Slider) -->
     <header id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
-        <!-- Background -->
-        <div class="absolute inset-0 z-0">
-            <img src="https://lh3.googleusercontent.com/d/182IZOGYFjifw_God8u6d78R4A4GKepJw=w1000" alt="Team Worth It Course" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-gradient-to-r from-emerald-900/90 via-emerald-800/80 to-transparent"></div>
+        <!-- Background Slider -->
+        <div id="hero-slider" class="absolute inset-0 z-0 bg-emerald-900">
+            <!-- Image 1 -->
+            <img src="https://lh3.googleusercontent.com/d/1ROBiZhWnSbVO9bs6UEQKMH7KCdHG6uf_=w1000" class="hero-slide active" alt="Slide 1">
+            <!-- Image 2 -->
+            <img src="https://lh3.googleusercontent.com/d/1SwNd1V2Ak7S0w4PGhG45QHsswC8VgKOX=w1000" class="hero-slide" alt="Slide 2">
+            <!-- Image 3 -->
+            <img src="https://lh3.googleusercontent.com/d/12antoBuJsp3sPQgPRT7zWq98l-C-6ilH=w1000" class="hero-slide" alt="Slide 3">
+            <!-- Image 4 -->
+            <img src="https://lh3.googleusercontent.com/d/1G8YMmej65BnYHnYe5gl0PgX95weyXZZy=w1000" class="hero-slide" alt="Slide 4">
+            <!-- Image 5 -->
+            <img src="https://lh3.googleusercontent.com/d/1gg3jJso-S8sCxz0kzH_aAWS9P0aYmhuE=w1000" class="hero-slide" alt="Slide 5">
+            
+            <!-- Dark Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-r from-emerald-900/95 via-emerald-800/80 to-transparent z-10"></div>
         </div>
 
         <div class="relative z-10 container mx-auto px-4 pt-20 grid md:grid-cols-2 gap-8 items-center">
@@ -134,27 +164,37 @@
                         Free PLACEMENT TEST
                     </a>
                 </div>
-                <!-- Jingle -->
-                <div class="pt-4 flex items-center gap-2 text-sm text-yellow-200/80">
-                    <i data-lucide="play-circle" class="w-4 h-4"></i>
-                    <a href="https://drive.google.com/uc?export=download&id=1mwQ6asDYZiLIN51-GTugaz5lR2D2GPb_" target="_blank" class="hover:text-white underline">
-                        Dengarkan Jingle Worth It Course
-                    </a>
+                
+                <!-- Youtube Jingle Auto Play -->
+                <div class="mt-6 w-full max-w-lg rounded-xl overflow-hidden shadow-2xl border-2 border-yellow-400/30 bg-black">
+                    <div class="aspect-video relative">
+                        <iframe 
+                            class="w-full h-full absolute top-0 left-0" 
+                            src="https://www.youtube.com/embed/Xz0kx2LGJT8?autoplay=1&mute=1&playlist=Xz0kx2LGJT8&loop=1&controls=0&showinfo=0&rel=0" 
+                            title="Worth It Course Jingle" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <p class="text-xs text-yellow-200/70 p-2 text-center bg-emerald-900/90 backdrop-blur-sm">
+                        *Video diputar otomatis (mute). Klik untuk menyalakan suara.
+                    </p>
                 </div>
             </div>
             
-            <!-- Hero Image Desktop -->
+            <!-- Hero Image Desktop (CEO) -->
             <div class="hidden md:block relative h-full" data-aos="fade-left">
                 <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-yellow-400 rounded-full blur-[100px] opacity-20"></div>
                 <!-- CEO Image in Hexagon/Box -->
-                <div class="relative overflow-hidden w-80 h-96 mx-auto border-4 border-yellow-400 shadow-2xl rounded-2xl">
+                <div class="relative overflow-hidden w-80 h-96 mx-auto border-4 border-yellow-400 shadow-2xl rounded-2xl bg-emerald-800">
                     <img src="https://lh3.googleusercontent.com/d/1HhYfWI1o1CffGNQfgnymyh2z7VB-WIYZ=w500" alt="CEO" class="w-full h-full object-cover">
                 </div>
             </div>
         </div>
         
         <!-- Wave Divider -->
-        <div class="absolute bottom-0 w-full leading-none">
+        <div class="absolute bottom-0 w-full leading-none z-20">
             <svg class="block w-full h-16 md:h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
                 <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="fill-slate-50"></path>
             </svg>
@@ -469,12 +509,14 @@
                 <div class="hexagon-clip w-32 h-36 md:w-48 md:h-52 bg-emerald-200 md:mt-12 overflow-hidden group">
                     <img src="https://lh3.googleusercontent.com/d/1Xrjr2Z95223MSbly_0JAaccA5d4ImBNf=w600" class="w-full h-full object-cover hover:scale-110 transition-transform">
                 </div>
+                <!-- Documentation Images (Added here) -->
                 <div class="hexagon-clip w-32 h-36 md:w-48 md:h-52 bg-emerald-200 overflow-hidden group">
-                    <img src="https://lh3.googleusercontent.com/d/1wd4a-ba_lDN056MnEaSY-3XiZdr0SRus=w600" class="w-full h-full object-cover hover:scale-110 transition-transform">
+                     <!-- Dokumentasi CitraRaya -->
+                    <img src="https://lh3.googleusercontent.com/d/18IShdt2ORCDO-kuQbkiXLJXd2TC3GHMy=w600" class="w-full h-full object-cover hover:scale-110 transition-transform" alt="Dokumentasi CitraRaya">
                 </div>
-                <!-- Learning Images -->
                 <div class="hexagon-clip w-32 h-36 md:w-48 md:h-52 bg-emerald-200 md:mt-12 overflow-hidden group">
-                    <img src="https://lh3.googleusercontent.com/d/1o-xx3iKXrPC9BBj515QgnbXgWV9curUB=w600" class="w-full h-full object-cover hover:scale-110 transition-transform">
+                     <!-- Dokumentasi WoW -->
+                    <img src="https://lh3.googleusercontent.com/d/1uos_TCFPrIycQNDXyhR_U6CQ3OfwQysx=w600" class="w-full h-full object-cover hover:scale-110 transition-transform" alt="Dokumentasi WoW">
                 </div>
             </div>
         </div>
@@ -488,31 +530,70 @@
             <div class="w-24 h-1 bg-yellow-400 mx-auto mt-4 rounded-full"></div>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="bg-white p-6 rounded-xl shadow-lg border border-slate-100 flex flex-col items-center text-center" data-aos="flip-left">
-                <img src="https://lh3.googleusercontent.com/d/1nmFkikUanwfi93BxSxhLEypclc7OudRm=w200" class="w-16 h-16 rounded-full object-cover mb-4 border-2 border-yellow-400">
-                <div class="flex text-yellow-400 mb-2 gap-1"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
-                <p class="text-slate-600 text-sm mb-4 italic">"Worth It Course sangat membantu perkembangan bahasa Inggris anak saya. Metodenya menyenangkan!"</p>
-                <h4 class="font-bold text-emerald-900">Ortu Qeenan</h4>
+        <div class="columns-1 md:columns-2 lg:columns-4 gap-6 space-y-6 mx-auto">
+            <!-- Testimoni 1 -->
+            <div class="break-inside-avoid bg-white p-2 rounded-xl shadow-lg border border-slate-100 hover:shadow-2xl transition-shadow duration-300" data-aos="fade-up">
+                <img src="https://lh3.googleusercontent.com/d/1nmFkikUanwfi93BxSxhLEypclc7OudRm=w600" alt="Testimoni Ortu Qeenan" class="w-full h-auto rounded-lg">
+                <div class="py-3 text-center">
+                    <h4 class="font-bold text-emerald-900 text-lg">Ortu Qeenan</h4>
+                    <div class="flex justify-center text-yellow-400 mt-1 gap-1"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
+                </div>
             </div>
-            <div class="bg-white p-6 rounded-xl shadow-lg border border-slate-100 flex flex-col items-center text-center" data-aos="flip-left" data-aos-delay="100">
-                <img src="https://lh3.googleusercontent.com/d/1KhOdTMP7ZSA2YJXQ07QAHpM6p5VSdyM3=w200" class="w-16 h-16 rounded-full object-cover mb-4 border-2 border-yellow-400">
-                <div class="flex text-yellow-400 mb-2 gap-1"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
-                <p class="text-slate-600 text-sm mb-4 italic">"Tutor yang ramah dan lingkungan belajar yang mendukung membuat anak saya makin percaya diri."</p>
-                <h4 class="font-bold text-emerald-900">Ortu Abror</h4>
+            
+            <!-- Testimoni 2 -->
+            <div class="break-inside-avoid bg-white p-2 rounded-xl shadow-lg border border-slate-100 hover:shadow-2xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="100">
+                <img src="https://lh3.googleusercontent.com/d/1KhOdTMP7ZSA2YJXQ07QAHpM6p5VSdyM3=w600" alt="Testimoni Ortu Abror" class="w-full h-auto rounded-lg">
+                <div class="py-3 text-center">
+                    <h4 class="font-bold text-emerald-900 text-lg">Ortu Abror</h4>
+                    <div class="flex justify-center text-yellow-400 mt-1 gap-1"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
+                </div>
             </div>
-            <div class="bg-white p-6 rounded-xl shadow-lg border border-slate-100 flex flex-col items-center text-center" data-aos="flip-left" data-aos-delay="200">
-                <img src="https://lh3.googleusercontent.com/d/1eiyR3j9l3hH-j2vrzmW4WgwylVbOQxOV=w200" class="w-16 h-16 rounded-full object-cover mb-4 border-2 border-yellow-400">
-                <div class="flex text-yellow-400 mb-2 gap-1"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
-                <p class="text-slate-600 text-sm mb-4 italic">"Sangat recommended! Fasilitas lengkap dan lokasi yang nyaman di Citra Raya."</p>
-                <h4 class="font-bold text-emerald-900">Ortu Puan</h4>
+
+            <!-- Testimoni 3 -->
+            <div class="break-inside-avoid bg-white p-2 rounded-xl shadow-lg border border-slate-100 hover:shadow-2xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="200">
+                <img src="https://lh3.googleusercontent.com/d/1eiyR3j9l3hH-j2vrzmW4WgwylVbOQxOV=w600" alt="Testimoni Ortu Puan" class="w-full h-auto rounded-lg">
+                <div class="py-3 text-center">
+                    <h4 class="font-bold text-emerald-900 text-lg">Ortu Puan</h4>
+                    <div class="flex justify-center text-yellow-400 mt-1 gap-1"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
+                </div>
             </div>
-            <div class="bg-white p-6 rounded-xl shadow-lg border border-slate-100 flex flex-col items-center text-center" data-aos="flip-left" data-aos-delay="300">
-                <img src="https://lh3.googleusercontent.com/d/1bCXLFqpiHPC6W4ryt5ojwUdh4EOvptBY=w200" class="w-16 h-16 rounded-full object-cover mb-4 border-2 border-yellow-400">
-                <div class="flex text-yellow-400 mb-2 gap-1"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
-                <p class="text-slate-600 text-sm mb-4 italic">"Kemajuan speaking anak-anak sangat pesat setelah bergabung disini."</p>
-                <h4 class="font-bold text-emerald-900">Ortu Alia & Bima</h4>
+
+            <!-- Testimoni 4 -->
+            <div class="break-inside-avoid bg-white p-2 rounded-xl shadow-lg border border-slate-100 hover:shadow-2xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="300">
+                <img src="https://lh3.googleusercontent.com/d/1LN3db8q7TPKOb4VFV_ZSTiYiCjgfOb4U=w600" alt="Testimoni Ortu Eshan" class="w-full h-auto rounded-lg">
+                <div class="py-3 text-center">
+                    <h4 class="font-bold text-emerald-900 text-lg">Ortu Eshan</h4>
+                    <div class="flex justify-center text-yellow-400 mt-1 gap-1"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
+                </div>
             </div>
+
+            <!-- Testimoni 5 -->
+            <div class="break-inside-avoid bg-white p-2 rounded-xl shadow-lg border border-slate-100 hover:shadow-2xl transition-shadow duration-300" data-aos="fade-up">
+                <img src="https://lh3.googleusercontent.com/d/1bCXLFqpiHPC6W4ryt5ojwUdh4EOvptBY=w600" alt="Testimoni Ortu Alia & Bima" class="w-full h-auto rounded-lg">
+                <div class="py-3 text-center">
+                    <h4 class="font-bold text-emerald-900 text-lg">Ortu Alia & Bima</h4>
+                    <div class="flex justify-center text-yellow-400 mt-1 gap-1"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
+                </div>
+            </div>
+
+            <!-- Testimoni 6 -->
+            <div class="break-inside-avoid bg-white p-2 rounded-xl shadow-lg border border-slate-100 hover:shadow-2xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="100">
+                <img src="https://lh3.googleusercontent.com/d/152shOQtgWI1rcRRZ37JBTwHoGq_bUDQb=w600" alt="Testimoni Ortu Dzaki" class="w-full h-auto rounded-lg">
+                <div class="py-3 text-center">
+                    <h4 class="font-bold text-emerald-900 text-lg">Ortu Dzaki</h4>
+                    <div class="flex justify-center text-yellow-400 mt-1 gap-1"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
+                </div>
+            </div>
+
+            <!-- Testimoni 7 -->
+            <div class="break-inside-avoid bg-white p-2 rounded-xl shadow-lg border border-slate-100 hover:shadow-2xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="200">
+                <img src="https://lh3.googleusercontent.com/d/1fZlaNg6Y8-jYiSuMRPdKerVYjFFdr3hq=w600" alt="Testimoni Ortu Uwais" class="w-full h-auto rounded-lg">
+                <div class="py-3 text-center">
+                    <h4 class="font-bold text-emerald-900 text-lg">Ortu Uwais</h4>
+                    <div class="flex justify-center text-yellow-400 mt-1 gap-1"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -557,26 +638,31 @@
 
                 <div class="mt-8">
                     <h3 class="font-bold mb-2 text-sm text-slate-300">Supported By:</h3>
-                    <div class="flex gap-4 bg-white/10 p-4 rounded-lg flex-wrap">
-                        <div class="bg-white p-1 rounded h-12 w-auto flex items-center justify-center px-2">
-                             <img src="https://lh3.googleusercontent.com/d/18IShdt2ORCDO-kuQbkiXLJXd2TC3GHMy=w400" alt="CitraRaya" class="h-full object-contain max-w-[80px]">
+                    <div class="flex gap-4 bg-white/10 p-4 rounded-lg flex-wrap items-center">
+                        <!-- CitraRaya Logo (Updated) -->
+                        <div class="bg-white p-2 rounded h-16 w-auto flex items-center justify-center px-4 hover:scale-105 transition-transform">
+                             <img src="https://lh3.googleusercontent.com/d/1O7XC1DCPG9jusA_gPtRYS0Kc3wnQ62hR=w400" alt="Logo CitraRaya" class="h-full object-contain max-w-[120px]">
                         </div>
-                        <div class="bg-white p-1 rounded h-12 w-auto flex items-center justify-center px-2">
-                             <img src="https://lh3.googleusercontent.com/d/1uos_TCFPrIycQNDXyhR_U6CQ3OfwQysx=w400" alt="WoW" class="h-full object-contain max-w-[80px]">
+                        <!-- WoW Logo (Updated) -->
+                        <div class="bg-white p-2 rounded h-16 w-auto flex items-center justify-center px-4 hover:scale-105 transition-transform">
+                             <img src="https://lh3.googleusercontent.com/d/14sVmOjyhZcqy8Wka6DHpK0u36BakKaoO=w400" alt="Logo WoW" class="h-full object-contain max-w-[120px]">
                         </div>
-                        <div class="bg-white p-1 rounded h-12 w-auto flex items-center justify-center px-2">
-                             <img src="https://lh3.googleusercontent.com/d/1jJCOHgL56ETMku0j0mhKy3Wr-azIItxu=w400" alt="UT" class="h-full object-contain max-w-[80px]">
+                        <!-- UT (Existing) -->
+                        <div class="bg-white p-2 rounded h-16 w-auto flex items-center justify-center px-4 hover:scale-105 transition-transform">
+                             <img src="https://lh3.googleusercontent.com/d/1jJCOHgL56ETMku0j0mhKy3Wr-azIItxu=w400" alt="UT" class="h-full object-contain max-w-[120px]">
                         </div>
-                        <div class="bg-white p-1 rounded h-12 w-auto flex items-center justify-center px-2">
-                             <img src="https://lh3.googleusercontent.com/d/1qT2eQgtK3517_wLLb3X4KnUbQO9sKhFX=w400" alt="UIN" class="h-full object-contain max-w-[80px]">
+                        <!-- UIN (Existing) -->
+                        <div class="bg-white p-2 rounded h-16 w-auto flex items-center justify-center px-4 hover:scale-105 transition-transform">
+                             <img src="https://lh3.googleusercontent.com/d/1qT2eQgtK3517_wLLb3X4KnUbQO9sKhFX=w400" alt="UIN" class="h-full object-contain max-w-[120px]">
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- New Google Map -->
             <div class="bg-white rounded-2xl p-2 shadow-2xl h-96" data-aos="fade-left">
                 <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.245244195191!2d103.5229!3d-1.6092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e25890060932dbb%3A0x60932dbb!2sCitraRaya%20City%20Jambi!5e0!3m2!1sen!2sid!4v1625000000000!5m2!1sen!2sid" 
+                  src="https://maps.google.com/maps?q=Worth+It+Course+Jambi&t=&z=13&ie=UTF8&iwloc=&output=embed" 
                   width="100%" 
                   height="100%" 
                   style="border:0; border-radius: 1rem;" 
@@ -615,6 +701,23 @@
         AOS.init({
             duration: 800,
             once: true,
+        });
+
+        // Hero Slider Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('.hero-slide');
+            let currentSlide = 0;
+            const slideInterval = 5000; // 5 seconds per slide
+
+            function nextSlide() {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }
+
+            if(slides.length > 0) {
+                setInterval(nextSlide, slideInterval);
+            }
         });
 
         // Toggle Mobile Menu
