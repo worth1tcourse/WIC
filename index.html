@@ -87,6 +87,12 @@
         .hero-slide.active, .about-slide.active {
             opacity: 1;
         }
+        
+        /* Avatar Shine Effect (No Frame) */
+        .avatar-shine {
+            filter: drop-shadow(0 0 15px rgba(250, 204, 21, 0.9)); /* Yellow/Gold shine */
+            mix-blend-mode: multiply; /* Helps blend white background if image is jpg */
+        }
     </style>
 </head>
 <body class="font-sans text-slate-800 bg-slate-50 overflow-x-hidden">
@@ -177,44 +183,51 @@
         </div>
     </header>
 
-    <!-- News Section with Avatar & Links -->
+    <!-- News & Info Section (Updated Content & Avatar) -->
     <section class="py-16 container mx-auto px-4 -mt-10 relative z-20">
-        <!-- Floating Avatar (Correct Link & Position) -->
-        <div class="absolute -top-24 left-4 md:left-10 z-30 hidden md:block">
-             <img src="https://lh3.googleusercontent.com/d/18DPyQrl_kmbcF0uj95KzwWeWVo2NF8h-=w200" alt="WIC Avatar" class="w-24 h-24 bg-white rounded-full p-1 shadow-2xl animate-bounce border-4 border-yellow-400">
+        
+        <!-- Floating Avatar (Updated: No Frame, Shine Outline, Left of Section) -->
+        <div class="absolute -top-32 md:-top-24 -left-4 md:-left-20 z-30 hidden lg:block pointer-events-none">
+             <!-- Using 'mix-blend-multiply' to help remove white background visually if present, and drop-shadow for shine -->
+             <img src="https://lh3.googleusercontent.com/d/18DPyQrl_kmbcF0uj95KzwWeWVo2NF8h-=w300" 
+                  alt="WIC Avatar Shine" 
+                  class="w-48 h-auto avatar-shine transform -rotate-12">
         </div>
 
-        <div class="grid md:grid-cols-3 gap-6">
-            <!-- News Item 1 -->
-            <a href="#" class="block group">
-                <div class="bg-white rounded-2xl shadow-lg p-6 border-l-4 border-yellow-400 hover:-translate-y-2 transition-transform duration-300 h-full" data-aos="fade-up" data-aos-delay="0">
-                    <div class="text-emerald-600 font-bold text-sm mb-2 flex items-center gap-2">
-                        <i data-lucide="calendar" class="w-4 h-4"></i> Nov 2024
+        <div class="grid md:grid-cols-3 gap-6 relative z-20">
+            <!-- Kartu 1: Pembukaan Kelas Baru (Link ke Instagram) -->
+            <a href="https://www.instagram.com/worthitcourse?igsh=eTBrMTBoOXo0b2to" target="_blank" class="block group">
+                <div class="bg-white rounded-2xl shadow-lg p-6 border-l-4 border-yellow-400 hover:-translate-y-2 transition-transform duration-300 h-full flex flex-col justify-between" data-aos="fade-up" data-aos-delay="0">
+                    <div>
+                        <div class="text-emerald-600 font-bold text-sm mb-2 flex items-center gap-2">
+                            <i data-lucide="info" class="w-4 h-4"></i> Informasi Terbaru
+                        </div>
+                        <h3 class="font-bold text-2xl mb-2 text-slate-800 group-hover:text-emerald-700 transition-colors">Pembukaan Kelas Baru</h3>
+                        <p class="text-slate-600">Jangan lewatkan kesempatan emas! Pendaftaran untuk batch terbaru telah dibuka. Klik disini untuk info detail dan amankan kuotamu sekarang juga via Instagram kami.</p>
                     </div>
-                    <h3 class="font-bold text-xl mb-2 text-slate-800 group-hover:text-emerald-700 transition-colors">Pembukaan Kelas Baru</h3>
-                    <p class="text-slate-600">Daftar sekarang untuk batch terbaru bulan ini! Klik untuk info detail.</p>
+                    <div class="mt-4 text-right">
+                        <span class="text-yellow-500 font-bold text-sm flex items-center justify-end gap-1">Cek Instagram <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+                    </div>
                 </div>
             </a>
-            <!-- News Item 2 -->
-            <a href="#" class="block group">
-                <div class="bg-white rounded-2xl shadow-lg p-6 border-l-4 border-yellow-400 hover:-translate-y-2 transition-transform duration-300 h-full" data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-emerald-600 font-bold text-sm mb-2 flex items-center gap-2">
-                        <i data-lucide="calendar" class="w-4 h-4"></i> Oct 2024
-                    </div>
-                    <h3 class="font-bold text-xl mb-2 text-slate-800 group-hover:text-emerald-700 transition-colors">Juara Speech Competition</h3>
-                    <p class="text-slate-600">Siswa WIC meraih Juara 1 Tingkat Provinsi. Lihat dokumentasi lengkap.</p>
+
+            <!-- Kartu 2: Komunitas (Alumni & Member) -->
+            <div class="bg-white rounded-2xl shadow-lg p-6 border-l-4 border-yellow-400 hover:-translate-y-2 transition-transform duration-300 h-full" data-aos="fade-up" data-aos-delay="100">
+                <div class="text-emerald-600 font-bold text-sm mb-2 flex items-center gap-2">
+                    <i data-lucide="users" class="w-4 h-4"></i> Komunitas Kami
                 </div>
-            </a>
-            <!-- News Item 3 -->
-            <a href="#" class="block group">
-                <div class="bg-white rounded-2xl shadow-lg p-6 border-l-4 border-yellow-400 hover:-translate-y-2 transition-transform duration-300 h-full" data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-emerald-600 font-bold text-sm mb-2 flex items-center gap-2">
-                        <i data-lucide="calendar" class="w-4 h-4"></i> Sep 2024
-                    </div>
-                    <h3 class="font-bold text-xl mb-2 text-slate-800 group-hover:text-emerald-700 transition-colors">Confident Show 2024</h3>
-                    <p class="text-slate-600">Ajang unjuk bakat public speaking siswa. Tonton keseruannya disini.</p>
+                <h3 class="font-bold text-2xl mb-2 text-slate-800">Komunitas Besar & Terpercaya</h3>
+                <p class="text-slate-600">Bergabunglah dengan ekosistem belajar yang terbukti mencetak prestasi! Kami bangga memiliki <strong>lebih dari 300 member alumni sukses</strong> dan <strong>150 member aktif</strong> yang terus bertumbuh. Di sini, Anda tidak hanya belajar bahasa Inggris, tetapi juga membangun jaringan masa depan yang solid.</p>
+            </div>
+
+            <!-- Kartu 3: Produk Unggulan (Confident Show) -->
+            <div class="bg-white rounded-2xl shadow-lg p-6 border-l-4 border-yellow-400 hover:-translate-y-2 transition-transform duration-300 h-full" data-aos="fade-up" data-aos-delay="200">
+                <div class="text-emerald-600 font-bold text-sm mb-2 flex items-center gap-2">
+                    <i data-lucide="star" class="w-4 h-4"></i> Produk Unggulan
                 </div>
-            </a>
+                <h3 class="font-bold text-2xl mb-2 text-slate-800">Confident Show & Creator Training</h3>
+                <p class="text-slate-600">Rasakan keistimewaan metode kami melalui <strong>Confident Show</strong>: panggung ekspresi diri yang memadukan <em>Performance Arts</em> dan <em>English Fun Games</em>. Bonus Spesial: <strong>Pelatihan menjadi Content Creator</strong> profesional untuk membekali Anda skill digital paling dicari saat ini!</p>
+            </div>
         </div>
     </section>
 
@@ -555,12 +568,6 @@
                 <p class="text-xs text-emerald-700/70 p-2 mt-2 text-center italic">
                     *Catatan: Browser mungkin memblokir autoplay dengan suara. Silakan klik tombol play jika video tidak berjalan otomatis.
                 </p>
-                
-                <!-- Chatbot Floating Here (Sticky to this section and below visually, but effectively fixed for ease) -->
-                <!-- Note: To make it appear only from here down requires JS scroll logic. 
-                     For simplicity and stability, I'll place it fixed bottom-left with a high z-index 
-                     so it floats over everything, but I'll add a class to initially hide it and show via JS or just keep it fixed. 
-                     Given the constraint, I will keep it fixed at bottom left as requested earlier but updated icon. -->
             </div>
         </div>
     </section>
