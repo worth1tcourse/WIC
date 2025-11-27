@@ -74,7 +74,7 @@
             background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 2px, transparent 2px, transparent 4px);
         }
         /* Slider Styles */
-        .hero-slide {
+        .hero-slide, .about-slide {
             position: absolute;
             inset: 0;
             width: 100%;
@@ -84,7 +84,7 @@
             transition: opacity 1.5s ease-in-out;
             z-index: 0;
         }
-        .hero-slide.active {
+        .hero-slide.active, .about-slide.active {
             opacity: 1;
         }
     </style>
@@ -93,10 +93,9 @@
 
     <!-- Navbar -->
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 bg-transparent">
-        <!-- Changed container to w-full with wider padding for better spacing -->
         <div class="w-full max-w-[1920px] mx-auto px-6 md:px-12 flex justify-between items-center">
             <div class="flex items-center gap-4">
-                <!-- Logo Updated: Larger, Shine, Blink -->
+                <!-- Logo -->
                 <img src="https://lh3.googleusercontent.com/d/1Ga3hnk5j0lyezOuPhRgLlqLm2vPJmkuC=w500" 
                      alt="WIC Logo" 
                      class="h-16 md:h-24 bg-white rounded-full p-1 animate-shine-pulse border-2 border-yellow-400 z-50 relative shadow-xl">
@@ -138,22 +137,17 @@
         </div>
     </nav>
 
-    <!-- Hero Section (With Slider) -->
+    <!-- Hero Section -->
     <header id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
         <!-- Background Slider -->
         <div id="hero-slider" class="absolute inset-0 z-0 bg-emerald-900">
-            <!-- Image 1 -->
             <img src="https://lh3.googleusercontent.com/d/1ROBiZhWnSbVO9bs6UEQKMH7KCdHG6uf_=w1000" class="hero-slide active" alt="Slide 1">
-            <!-- Image 2 -->
             <img src="https://lh3.googleusercontent.com/d/1SwNd1V2Ak7S0w4PGhG45QHsswC8VgKOX=w1000" class="hero-slide" alt="Slide 2">
-            <!-- Image 3 -->
             <img src="https://lh3.googleusercontent.com/d/12antoBuJsp3sPQgPRT7zWq98l-C-6ilH=w1000" class="hero-slide" alt="Slide 3">
-            <!-- Image 4 -->
             <img src="https://lh3.googleusercontent.com/d/1G8YMmej65BnYHnYe5gl0PgX95weyXZZy=w1000" class="hero-slide" alt="Slide 4">
-            <!-- Image 5 -->
             <img src="https://lh3.googleusercontent.com/d/1gg3jJso-S8sCxz0kzH_aAWS9P0aYmhuE=w1000" class="hero-slide" alt="Slide 5">
             
-            <!-- Dark Overlay (Updated Gradient: Darker Top -> Lighter Bottom) -->
+            <!-- Dark Overlay -->
             <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-emerald-900/60 to-emerald-900/10 z-10"></div>
         </div>
 
@@ -166,13 +160,12 @@
                     Bahasa Inggris <br/>
                     <span class="text-yellow-400">INVESTASI CERDAS</span> <br/>
                     untuk MASA DEPAN <br/>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-white">TANPA BATAS</span>
+                    <span class="text-yellow-400">TANPA BATAS</span>
                 </h1>
                 <p class="text-xl md:text-2xl text-yellow-200 font-bold max-w-2xl mx-auto italic tracking-wide drop-shadow-lg" style="text-shadow: 0 2px 8px rgba(0,0,0,1);">
                     "Whoever We Are, We are WORTH IT"
                 </p>
                 <div class="flex flex-col sm:flex-row gap-6 pt-6 justify-center">
-                    <!-- CTA Buttons with proportional sizing -->
                     <a href="https://bit.ly/PendaftaranMemberWIC" target="_blank" class="w-full sm:w-auto bg-yellow-400 text-emerald-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-300 transition-all shadow-[0_0_20px_rgba(250,204,21,0.5)] text-center flex items-center justify-center gap-2 border-2 border-yellow-400 hover:border-yellow-300 transform hover:-translate-y-1">
                         REGISTER NOW <i data-lucide="chevron-right" class="w-6 h-6"></i>
                     </a>
@@ -184,40 +177,53 @@
         </div>
     </header>
 
-    <!-- News Section -->
+    <!-- News Section with Avatar & Links -->
     <section class="py-16 container mx-auto px-4 -mt-10 relative z-20">
+        <!-- Floating Avatar (Correct Link & Position) -->
+        <div class="absolute -top-24 left-4 md:left-10 z-30 hidden md:block">
+             <img src="https://lh3.googleusercontent.com/d/18DPyQrl_kmbcF0uj95KzwWeWVo2NF8h-=w200" alt="WIC Avatar" class="w-24 h-24 bg-white rounded-full p-1 shadow-2xl animate-bounce border-4 border-yellow-400">
+        </div>
+
         <div class="grid md:grid-cols-3 gap-6">
             <!-- News Item 1 -->
-            <div class="bg-white rounded-2xl shadow-lg p-6 border-l-4 border-yellow-400 hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="0">
-                <div class="text-emerald-600 font-bold text-sm mb-2 flex items-center gap-2">
-                    <i data-lucide="calendar" class="w-4 h-4"></i> Nov 2024
+            <a href="#" class="block group">
+                <div class="bg-white rounded-2xl shadow-lg p-6 border-l-4 border-yellow-400 hover:-translate-y-2 transition-transform duration-300 h-full" data-aos="fade-up" data-aos-delay="0">
+                    <div class="text-emerald-600 font-bold text-sm mb-2 flex items-center gap-2">
+                        <i data-lucide="calendar" class="w-4 h-4"></i> Nov 2024
+                    </div>
+                    <h3 class="font-bold text-xl mb-2 text-slate-800 group-hover:text-emerald-700 transition-colors">Pembukaan Kelas Baru</h3>
+                    <p class="text-slate-600">Daftar sekarang untuk batch terbaru bulan ini! Klik untuk info detail.</p>
                 </div>
-                <h3 class="font-bold text-xl mb-2 text-slate-800">Pembukaan Kelas Baru</h3>
-                <p class="text-slate-600">Daftar sekarang untuk batch terbaru bulan ini!</p>
-            </div>
+            </a>
             <!-- News Item 2 -->
-            <div class="bg-white rounded-2xl shadow-lg p-6 border-l-4 border-yellow-400 hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="100">
-                <div class="text-emerald-600 font-bold text-sm mb-2 flex items-center gap-2">
-                    <i data-lucide="calendar" class="w-4 h-4"></i> Oct 2024
+            <a href="#" class="block group">
+                <div class="bg-white rounded-2xl shadow-lg p-6 border-l-4 border-yellow-400 hover:-translate-y-2 transition-transform duration-300 h-full" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-emerald-600 font-bold text-sm mb-2 flex items-center gap-2">
+                        <i data-lucide="calendar" class="w-4 h-4"></i> Oct 2024
+                    </div>
+                    <h3 class="font-bold text-xl mb-2 text-slate-800 group-hover:text-emerald-700 transition-colors">Juara Speech Competition</h3>
+                    <p class="text-slate-600">Siswa WIC meraih Juara 1 Tingkat Provinsi. Lihat dokumentasi lengkap.</p>
                 </div>
-                <h3 class="font-bold text-xl mb-2 text-slate-800">Juara Speech Competition</h3>
-                <p class="text-slate-600">Siswa WIC meraih Juara 1 Tingkat Provinsi.</p>
-            </div>
+            </a>
             <!-- News Item 3 -->
-            <div class="bg-white rounded-2xl shadow-lg p-6 border-l-4 border-yellow-400 hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="200">
-                <div class="text-emerald-600 font-bold text-sm mb-2 flex items-center gap-2">
-                    <i data-lucide="calendar" class="w-4 h-4"></i> Sep 2024
+            <a href="#" class="block group">
+                <div class="bg-white rounded-2xl shadow-lg p-6 border-l-4 border-yellow-400 hover:-translate-y-2 transition-transform duration-300 h-full" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-emerald-600 font-bold text-sm mb-2 flex items-center gap-2">
+                        <i data-lucide="calendar" class="w-4 h-4"></i> Sep 2024
+                    </div>
+                    <h3 class="font-bold text-xl mb-2 text-slate-800 group-hover:text-emerald-700 transition-colors">Confident Show 2024</h3>
+                    <p class="text-slate-600">Ajang unjuk bakat public speaking siswa. Tonton keseruannya disini.</p>
                 </div>
-                <h3 class="font-bold text-xl mb-2 text-slate-800">Confident Show 2024</h3>
-                <p class="text-slate-600">Ajang unjuk bakat public speaking siswa.</p>
-            </div>
+            </a>
         </div>
     </section>
 
-    <!-- About Section (Updated CEO Photo Effect) -->
-    <section id="about" class="py-16 container mx-auto px-4">
+    <!-- About Section with Carousel -->
+    <section id="about" class="py-16 container mx-auto px-4 overflow-hidden">
         <div class="grid md:grid-cols-2 gap-12 items-center">
-            <div class="space-y-6 order-2 md:order-1" data-aos="fade-right">
+            
+            <!-- Left Side: Text content -->
+            <div class="space-y-6 order-2 md:order-1 relative z-10" data-aos="fade-right">
                 <h4 class="text-emerald-600 font-bold tracking-widest">TENTANG KAMI</h4>
                 <h2 class="text-4xl font-extrabold text-slate-900">Mencetak Generasi <span class="text-yellow-500">Cerdas & Percaya Diri</span></h2>
                 <p class="text-slate-600 leading-relaxed text-lg text-justify">
@@ -226,38 +232,48 @@
                     Misi kami memberikan pendidikan berkualitas dengan metode interaktif untuk masa depan tanpa batas.
                 </p>
                 
-                <!-- CEO Card Pop Art Effect -->
-                <div class="bg-emerald-50 p-6 pt-12 rounded-3xl border-2 border-emerald-100 relative mt-16 shadow-xl group hover:border-yellow-400 transition-colors duration-300">
-                    <!-- Pop out Image Container -->
-                    <div class="absolute -top-16 left-6 w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-white shadow-2xl overflow-hidden bg-yellow-400 transform group-hover:scale-110 transition-transform duration-500 z-10">
-                        <img src="https://lh3.googleusercontent.com/d/1HhYfWI1o1CffGNQfgnymyh2z7VB-WIYZ=w500" alt="CEO" class="w-full h-full object-cover">
-                    </div>
-                    
-                    <div class="ml-4 md:ml-8 mt-2">
-                        <div class="absolute top-4 right-6 bg-yellow-400 p-2 rounded-lg text-emerald-900 rotate-12 shadow-lg">
-                            <i data-lucide="quote" class="w-6 h-6 fill-current"></i>
+                <!-- CEO Info Area -->
+                <div class="mt-8 pt-4 border-t-2 border-emerald-100">
+                    <div class="flex items-center gap-6">
+                        <!-- Pop-out CEO Photo -->
+                        <div class="relative w-24 h-24 md:w-32 md:h-32 flex-shrink-0">
+                            <div class="absolute inset-0 bg-yellow-400 rounded-full transform rotate-6 shadow-lg"></div>
+                            <img src="https://lh3.googleusercontent.com/d/1HhYfWI1o1CffGNQfgnymyh2z7VB-WIYZ=w500" alt="CEO" 
+                                 class="absolute inset-0 w-full h-full object-cover rounded-full border-4 border-white shadow-xl transform -translate-y-2 hover:scale-105 transition-transform duration-300">
                         </div>
-                        <h3 class="font-bold text-2xl text-emerald-900 mb-1 mt-4 ml-24 md:ml-32">Sambutan Founder</h3>
-                        <p class="font-semibold text-yellow-600 text-sm ml-24 md:ml-32 mb-4">Director of WIC</p>
-                        <p class="italic text-slate-700 text-lg leading-relaxed relative z-0">
-                            "Bahasa Inggris bukan sekadar mata pelajaran, tapi kunci membuka pintu dunia. Mari berinvestasi untuk masa depan yang lebih cerah bersama Worth It Course."
-                        </p>
+                        
+                        <!-- Text -->
+                        <div>
+                            <div class="bg-emerald-50 px-4 py-2 rounded-lg inline-block mb-2">
+                                <span class="text-emerald-900 font-bold italic">"Bahasa Inggris kunci membuka pintu dunia."</span>
+                            </div>
+                            <h3 class="font-bold text-xl text-emerald-900">Mr. Khoirul Mahmud, S. Pd., S. Kom.</h3>
+                            <p class="text-sm font-semibold text-yellow-600">Direktur dan Co-Founder Worth It Course</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="relative order-1 md:order-2" data-aos="fade-left">
-                <!-- Hexagon Grid Images -->
-                <div class="flex flex-wrap justify-center gap-4">
-                    <div class="hexagon-clip w-48 h-52 bg-slate-200 relative overflow-hidden group shadow-lg">
-                         <img src="https://lh3.googleusercontent.com/d/1s8d4IlYZz_OLPO7aGU2gJZhkPMkHGbMG=w600" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500">
+            <!-- Right Side: Abstract Carousel -->
+            <div class="relative order-1 md:order-2 h-[400px] w-full" data-aos="fade-left">
+                <!-- Abstract Frame Background -->
+                <div class="absolute top-0 right-0 w-full h-full bg-emerald-900/10 rounded-[3rem] transform rotate-3 z-0"></div>
+                <div class="absolute top-4 right-4 w-full h-full border-2 border-yellow-400 rounded-[3rem] transform -rotate-2 z-0"></div>
+                
+                <!-- Carousel Container -->
+                <div class="relative w-full h-full rounded-[2rem] overflow-hidden shadow-2xl z-10 bg-slate-200">
+                    <div id="about-slider" class="w-full h-full">
+                        <img src="https://lh3.googleusercontent.com/d/1s8d4IlYZz_OLPO7aGU2gJZhkPMkHGbMG=w800" class="about-slide active" alt="Activity 1">
+                        <img src="https://lh3.googleusercontent.com/d/1nSPMZuvTMDVi_bfTUz0NGB2hJ13Qegco=w800" class="about-slide" alt="Activity 2">
+                        <img src="https://lh3.googleusercontent.com/d/1Xrjr2Z95223MSbly_0JAaccA5d4ImBNf=w800" class="about-slide" alt="Activity 3">
+                        <img src="https://lh3.googleusercontent.com/d/1wd4a-ba_lDN056MnEaSY-3XiZdr0SRus=w800" class="about-slide" alt="Activity 4">
+                        <img src="https://lh3.googleusercontent.com/d/1h_MEQtRiv2zX82JVwdbMD4jKsKvvN7jn=w800" class="about-slide" alt="Activity 5">
+                        <img src="https://lh3.googleusercontent.com/d/1TzsueGNkackr_R80dnwgZBDl18jlFz8G=w800" class="about-slide" alt="Activity 6">
+                        <img src="https://lh3.googleusercontent.com/d/1jJCOHgL56ETMku0j0mhKy3Wr-azIItxu=w800" class="about-slide" alt="Activity 7">
+                        <img src="https://lh3.googleusercontent.com/d/1qT2eQgtK3517_wLLb3X4KnUbQO9sKhFX=w800" class="about-slide" alt="Activity 8">
                     </div>
-                    <div class="hexagon-clip w-48 h-52 bg-slate-200 mt-12 relative overflow-hidden group shadow-lg">
-                         <img src="https://lh3.googleusercontent.com/d/1nSPMZuvTMDVi_bfTUz0NGB2hJ13Qegco=w600" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500">
-                    </div>
-                    <div class="hexagon-clip w-48 h-52 bg-slate-200 relative overflow-hidden group shadow-lg">
-                         <img src="https://lh3.googleusercontent.com/d/1Xrjr2Z95223MSbly_0JAaccA5d4ImBNf=w600" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500">
-                    </div>
+                    <!-- Gradient Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
                 </div>
             </div>
         </div>
@@ -276,37 +292,32 @@
             </div>
             
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Item 1 -->
+                <!-- Items -->
                 <div class="bg-emerald-800/50 backdrop-blur-sm p-8 rounded-2xl border border-emerald-700 hover:bg-emerald-800 hover:border-yellow-400 transition-all group" data-aos="fade-up" data-aos-delay="0">
                     <div class="text-yellow-400 mb-4 transform group-hover:scale-110 transition-transform"><i data-lucide="award" class="w-10 h-10"></i></div>
                     <h3 class="text-xl font-bold mb-2">Tutor Pare Kediri</h3>
                     <p class="text-emerald-100 text-sm">Pengajar berpengalaman lulusan Kampung Inggris.</p>
                 </div>
-                <!-- Item 2 -->
                 <div class="bg-emerald-800/50 backdrop-blur-sm p-8 rounded-2xl border border-emerald-700 hover:bg-emerald-800 hover:border-yellow-400 transition-all group" data-aos="fade-up" data-aos-delay="100">
                     <div class="text-yellow-400 mb-4 transform group-hover:scale-110 transition-transform"><i data-lucide="play-circle" class="w-10 h-10"></i></div>
                     <h3 class="text-xl font-bold mb-2">Metode Interaktif</h3>
                     <p class="text-emerald-100 text-sm">Media belajar yang seru dan tidak membosankan.</p>
                 </div>
-                <!-- Item 3 -->
                 <div class="bg-emerald-800/50 backdrop-blur-sm p-8 rounded-2xl border border-emerald-700 hover:bg-emerald-800 hover:border-yellow-400 transition-all group" data-aos="fade-up" data-aos-delay="200">
                     <div class="text-yellow-400 mb-4 transform group-hover:scale-110 transition-transform"><i data-lucide="book-open" class="w-10 h-10"></i></div>
                     <h3 class="text-xl font-bold mb-2">Kurikulum Terkonsep</h3>
                     <p class="text-emerald-100 text-sm">Materi disusun sistematis termasuk materi sekolah.</p>
                 </div>
-                <!-- Item 4 -->
                 <div class="bg-emerald-800/50 backdrop-blur-sm p-8 rounded-2xl border border-emerald-700 hover:bg-emerald-800 hover:border-yellow-400 transition-all group" data-aos="fade-up" data-aos-delay="300">
                     <div class="text-yellow-400 mb-4 transform group-hover:scale-110 transition-transform"><i data-lucide="users" class="w-10 h-10"></i></div>
                     <h3 class="text-xl font-bold mb-2">Confident Show</h3>
                     <p class="text-emerald-100 text-sm">Pelatihan Public Speaking dengan acara unjuk bakat.</p>
                 </div>
-                <!-- Item 5 -->
                 <div class="bg-emerald-800/50 backdrop-blur-sm p-8 rounded-2xl border border-emerald-700 hover:bg-emerald-800 hover:border-yellow-400 transition-all group" data-aos="fade-up" data-aos-delay="400">
                     <div class="text-yellow-400 mb-4 transform group-hover:scale-110 transition-transform"><i data-lucide="map-pin" class="w-10 h-10"></i></div>
                     <h3 class="text-xl font-bold mb-2">Lokasi Nyaman</h3>
-                    <p class="text-emerald-100 text-sm">Tempat asri, ber-AC, dan mudah diakses di Citra Raya.</p>
+                    <p class="text-emerald-100 text-sm">Lokasi Nyaman, asri, dan mudah diakses di Citra Raya.</p>
                 </div>
-                <!-- Item 6 -->
                 <div class="bg-emerald-800/50 backdrop-blur-sm p-8 rounded-2xl border border-emerald-700 hover:bg-emerald-800 hover:border-yellow-400 transition-all group" data-aos="fade-up" data-aos-delay="500">
                     <div class="text-yellow-400 mb-4 transform group-hover:scale-110 transition-transform"><i data-lucide="clock" class="w-10 h-10"></i></div>
                     <h3 class="text-xl font-bold mb-2">Waktu Fleksibel</h3>
@@ -363,12 +374,17 @@
                     <span class="inline-block bg-emerald-100 text-emerald-800 text-xs px-2 py-1 rounded mb-3 font-semibold">Max 2 Member</span>
                     <p class="text-slate-600 text-sm">Intensif, personal, jadwal fleksibel.</p>
                 </div>
-                <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all border-b-4 border-emerald-900 hover:border-yellow-400 group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-4xl mb-4 bg-emerald-50 w-16 h-16 rounded-full flex items-center justify-center group-hover:bg-yellow-100 transition-colors">🌐</div>
-                    <h3 class="font-bold text-lg text-emerald-900 mb-1">Online Study Club</h3>
-                    <span class="inline-block bg-emerald-100 text-emerald-800 text-xs px-2 py-1 rounded mb-3 font-semibold">Umum</span>
-                    <p class="text-slate-600 text-sm">Sesi belajar gratis via daring.</p>
-                </div>
+                
+                <!-- Online Study Club (Linked to WA) -->
+                <a href="https://whatsapp.com/channel/0029VbBLsHj7dmeXBuOl481X" target="_blank" class="block group">
+                    <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all border-b-4 border-emerald-900 hover:border-yellow-400 h-full">
+                        <div class="text-4xl mb-4 bg-emerald-50 w-16 h-16 rounded-full flex items-center justify-center group-hover:bg-yellow-100 transition-colors">🌐</div>
+                        <h3 class="font-bold text-lg text-emerald-900 mb-1">Online Study Club</h3>
+                        <span class="inline-block bg-emerald-100 text-emerald-800 text-xs px-2 py-1 rounded mb-3 font-semibold">Umum (Free)</span>
+                        <p class="text-slate-600 text-sm">Join komunitas belajar gratis via WhatsApp!</p>
+                    </div>
+                </a>
+
                 <div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all border-b-4 border-emerald-900 hover:border-yellow-400 group" data-aos="fade-up" data-aos-delay="300">
                     <div class="text-4xl mb-4 bg-emerald-50 w-16 h-16 rounded-full flex items-center justify-center group-hover:bg-yellow-100 transition-colors">📚</div>
                     <h3 class="font-bold text-lg text-emerald-900 mb-1">TOEFL Preparation</h3>
@@ -441,35 +457,35 @@
                 </ul>
             </div>
 
-            <!-- Facilities Grid (Updated) -->
+            <!-- Facilities Grid -->
             <div data-aos="fade-left">
                 <div class="mb-6">
                     <h3 class="text-3xl font-bold text-emerald-900">Fasilitas Lengkap</h3>
                     <p class="text-slate-600">Menunjang kenyamanan belajar siswa.</p>
                 </div>
                 <div class="grid grid-cols-2 gap-4">
-                    <!-- Fasilitas 1: Ruang Kelas -->
+                    <!-- Fasilitas 1 -->
                     <div class="relative group overflow-hidden rounded-xl h-32 md:h-40">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1YpqhkrvmxioNYxh3cbTvy3ra1kOO8Sd7G_pmDuqCl4y6dcPPawHV-Q0ANk-TF3W7158&usqp=CAU" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Ruang Kelas">
                         <div class="absolute inset-0 bg-black/60 flex items-center justify-center p-2 text-center">
                             <span class="text-white font-bold text-xs md:text-sm">Ruang Kelas Nyaman dan Kondusif</span>
                         </div>
                     </div>
-                    <!-- Fasilitas 2: Smart TV -->
+                    <!-- Fasilitas 2 -->
                     <div class="relative group overflow-hidden rounded-xl h-32 md:h-40">
                         <img src="https://i.pinimg.com/1200x/5e/1a/c5/5e1ac5613d2202c14e3b20aad4306c61.jpg" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Smart TV">
                         <div class="absolute inset-0 bg-black/60 flex items-center justify-center p-2 text-center">
                             <span class="text-white font-bold text-xs md:text-sm">Smart TV disetiap Kelas</span>
                         </div>
                     </div>
-                    <!-- Fasilitas 3: Media Ajar -->
+                    <!-- Fasilitas 3 -->
                     <div class="relative group overflow-hidden rounded-xl h-32 md:h-40">
                         <img src="https://umsu.ac.id/berita/wp-content/uploads/2024/05/rekomendasi-untuk-pengajar-sejumlah-game-sebagai-media-pembelajaran-bahasa-inggris.jpg" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Media Ajar">
                         <div class="absolute inset-0 bg-black/60 flex items-center justify-center p-2 text-center">
                             <span class="text-white font-bold text-xs md:text-sm">Tersedia Media ajar dan alat game edukatif</span>
                         </div>
                     </div>
-                    <!-- Fasilitas 4: Parkir -->
+                    <!-- Fasilitas 4 -->
                     <div class="relative group overflow-hidden rounded-xl h-32 md:h-40">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR20KYwRT81f-bOrRqy1weJ0EL9VKYQMKw9VA&s" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Area Parkir">
                         <div class="absolute inset-0 bg-black/60 flex items-center justify-center p-2 text-center">
@@ -519,8 +535,8 @@
                 </div>
             </div>
             
-            <!-- Video Section (Updated: Sound Enabled) -->
-            <div class="mt-16 w-full max-w-4xl mx-auto px-4" data-aos="fade-up">
+            <!-- Video Section -->
+            <div class="mt-16 w-full max-w-4xl mx-auto px-4 relative z-40" data-aos="fade-up">
                 <div class="text-center mb-8">
                     <h3 class="text-yellow-500 font-bold uppercase tracking-wider text-sm mb-2">Official Jingle</h3>
                     <h2 class="text-3xl md:text-4xl font-extrabold text-emerald-900">DENGARKAN SEMANGAT KAMI</h2>
@@ -539,6 +555,12 @@
                 <p class="text-xs text-emerald-700/70 p-2 mt-2 text-center italic">
                     *Catatan: Browser mungkin memblokir autoplay dengan suara. Silakan klik tombol play jika video tidak berjalan otomatis.
                 </p>
+                
+                <!-- Chatbot Floating Here (Sticky to this section and below visually, but effectively fixed for ease) -->
+                <!-- Note: To make it appear only from here down requires JS scroll logic. 
+                     For simplicity and stability, I'll place it fixed bottom-left with a high z-index 
+                     so it floats over everything, but I'll add a class to initially hide it and show via JS or just keep it fixed. 
+                     Given the constraint, I will keep it fixed at bottom left as requested earlier but updated icon. -->
             </div>
         </div>
     </section>
@@ -626,7 +648,6 @@
                 <h2 class="text-3xl font-bold mb-6">Hubungi Kami</h2>
                 <div class="space-y-6">
                     <div class="flex items-start gap-4">
-                        <!-- Updated Map Icon Size -->
                         <i data-lucide="map-pin" class="text-yellow-400 mt-1 w-6 h-6 flex-shrink-0"></i>
                         <p>Ruko Perkantoran Boulevard Blok A08/12, Citra Raya City Jambi, Kec. Jaluko, Kab. Muaro Jambi (9GFH+8W)</p>
                     </div>
@@ -636,7 +657,6 @@
                     </div>
                     <div class="flex items-center gap-4">
                          <i data-lucide="mail" class="text-yellow-400 w-6 h-6 flex-shrink-0"></i>
-                         <!-- Updated Email -->
                          <a href="mailto:worthitcourse@gmail.com" class="hover:text-yellow-400">worthitcourse@gmail.com</a>
                     </div>
                 </div>
@@ -662,15 +682,12 @@
                 <div class="mt-8">
                     <h3 class="font-bold mb-2 text-sm text-slate-300">Supported By:</h3>
                     <div class="flex gap-4 bg-white/10 p-4 rounded-lg flex-wrap items-center">
-                        <!-- CitraRaya Logo (Updated) -->
                         <div class="bg-white p-2 rounded h-16 w-auto flex items-center justify-center px-4 hover:scale-105 transition-transform">
                              <img src="https://lh3.googleusercontent.com/d/1O7XC1DCPG9jusA_gPtRYS0Kc3wnQ62hR=w400" alt="Logo CitraRaya" class="h-full object-contain max-w-[120px]">
                         </div>
-                        <!-- WoW Logo (Updated) -->
                         <div class="bg-white p-2 rounded h-16 w-auto flex items-center justify-center px-4 hover:scale-105 transition-transform">
                              <img src="https://lh3.googleusercontent.com/d/14sVmOjyhZcqy8Wka6DHpK0u36BakKaoO=w400" alt="Logo WoW" class="h-full object-contain max-w-[120px]">
                         </div>
-                        <!-- UT & UIN Removed -->
                     </div>
                 </div>
             </div>
@@ -702,6 +719,17 @@
         </div>
     </footer>
 
+    <!-- Floating Chatbot (Positioned Bottom Left Fixed for easy access) -->
+    <a href="https://chatgpt.com/g/g-6925c15198e881919499d0fbbe6ce532-worth-it-assistant" target="_blank" 
+       class="fixed bottom-6 left-6 z-50 group flex items-center gap-2 animate-float">
+        <div class="w-14 h-14 bg-white rounded-full p-1 shadow-2xl border-4 border-yellow-400 overflow-hidden hover:scale-110 transition-transform cursor-pointer">
+            <img src="https://lh3.googleusercontent.com/d/1Ga3hnk5j0lyezOuPhRgLlqLm2vPJmkuC=w200" alt="WIC Chatbot" class="w-full h-full object-cover">
+        </div>
+        <div class="bg-white text-emerald-900 px-3 py-1 rounded-lg shadow-lg text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+            Tanya Assistant
+        </div>
+    </a>
+
     <!-- Floating WhatsApp -->
     <a href="https://wa.me/6281359199251" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg z-50 hover:bg-green-600 hover:scale-110 transition-all animate-bounce">
         <i data-lucide="phone" class="w-7 h-7"></i>
@@ -719,21 +747,23 @@
             once: true,
         });
 
-        // Hero Slider Logic
+        // Hero & About Slider Logic
         document.addEventListener('DOMContentLoaded', () => {
-            const slides = document.querySelectorAll('.hero-slide');
-            let currentSlide = 0;
+            const heroSlides = document.querySelectorAll('.hero-slide');
+            const aboutSlides = document.querySelectorAll('.about-slide');
             const slideInterval = 5000; // 5 seconds per slide
 
-            function nextSlide() {
-                slides[currentSlide].classList.remove('active');
-                currentSlide = (currentSlide + 1) % slides.length;
-                slides[currentSlide].classList.add('active');
+            function runSlider(slides) {
+                let currentSlide = 0;
+                setInterval(() => {
+                    slides[currentSlide].classList.remove('active');
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    slides[currentSlide].classList.add('active');
+                }, slideInterval);
             }
 
-            if(slides.length > 0) {
-                setInterval(nextSlide, slideInterval);
-            }
+            if(heroSlides.length > 0) runSlider(heroSlides);
+            if(aboutSlides.length > 0) runSlider(aboutSlides);
         });
 
         // Toggle Mobile Menu
